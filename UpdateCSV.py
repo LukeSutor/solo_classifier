@@ -1,30 +1,13 @@
 import os
 import pandas as pd
 
+from songs import get_songs
+
 directory = "C:/Users/Luke/Desktop/coding/solo_classifier/audio/solos"
 
 csv = pd.read_csv("C:/Users/Luke/Desktop/coding/solo_classifier/audio/annotations.csv")
 
-# Artists: 
-# Jimmy Page
-# Eddie Van Halen
-# David Gilmour
-# Eric Clapton
-# Jimi Hendrix
-# Slash
-# Randy Rhoades
-# Mark Knopfler
-# Brian May
-# Prince
-# Carlos Santana
-# J Mascis
-
-songs = [
-    "Stairway_To_Heaven",
-    "Whole_Lotta_Love",
-    "Custard_Pie",
-    ""
-]
+songs = get_songs()
 
 def get_solo_number(solo):
     i = 0
@@ -36,11 +19,11 @@ def get_solo_number(solo):
             return int(solo[:i])
 
 def get_guitarist_id(solo_number):
-    if(solo_number < 10): return 0
+    if(solo_number <= 75): return 0
     else: return -1
 
 def get_guitarist(solo_number):
-    if(solo_number < 10): return "Jimmy_Page"
+    if(solo_number <= 75): return "jimmy_page"
     else: return "unknown"
 
 

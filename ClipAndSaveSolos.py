@@ -1,33 +1,42 @@
-from pytube import YouTube
+import wave
+import contextlib
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
+from songs import get_songs
 
 # Download the youtube videos as .wav files at https://loader.to/en18/youtube-wav-converter.html 
 # Save the video as its name under the full_solos directory
 
 # Transposer: https://transposr.com/songs/new
 # Converter: https://www.freeconvert.com/audio-converter
+# Wav converter https://songsurgeon.com/engine/ssweb/
 
-FILENAME = 'Custard_Pie_Up_Half'
-SONG_NUMBER = 2.1
+FILENAME = "dazed_and_confused"
 
-# This is where you input the start and end time of the solo, and it's chopped up into 10 second segments and saved
-# in the correct solos folder to be accessed by the annotations.csv file
-start_minutes = 1
-start_seconds = 45
 
-end_minutes = 2
-end_seconds = 16
+def get_song_number():
+    songs = get_songs()
+    for i in range(len(songs)):
+        print(songs[i])
+        if(songs[i] == FILENAME):
+            return i
+    return 'SONG NOT FOUND'
 
-start_time = start_minutes * 60 + start_seconds
-end_time = end_minutes * 60 + end_seconds
+SONG_NUMBER = int(get_song_number())
 
-clips = ((end_time - start_time) // 10)
 
-for i in range(clips):
+# The minimized solo clip is automatically chopped down into 10 second segments
+
+def get_duration():
+    with contextlib.closing(wave.open("C:/Users/Luke/Desktop/coding/solo_classifier/audio/full_solos/"+FILENAME+"_minimized.wav",'r')) as f:
+        frames = f.getnframes()
+        rate = f.getframerate()
+        duration = frames / float(rate)
+        return duration
+
+for i in range(int(get_duration()) // 10):
     ffmpeg_extract_subclip(
-        "C:/Users/Luke/Desktop/coding/solo_classifier/audio/full_solos/"+FILENAME+".wav", 
-        start_time+(i*10), 
-        start_time+((i+1)*10), 
-        targetname=f"C:/Users/Luke/Desktop/coding/solo_classifier/audio/solos/{SONG_NUMBER}_{i}.wav"
-        )
-    print(f"clip {i} complete")
+    "C:/Users/Luke/Desktop/coding/solo_classifier/audio/full_solos/"+FILENAME+"_minimized.wav", 
+    i*10, 
+    (i+1)*10, 
+    targetname=f"C:/Users/Luke/Desktop/coding/solo_classifier/audio/solos/{SONG_NUMBER}_{i}.wav"
+    )
