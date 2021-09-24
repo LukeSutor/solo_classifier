@@ -99,6 +99,6 @@ if __name__ == "__main__":
     NUM_SAMPLES,
     device)
 
-    signal, label = sd[0]
+    signal, label = sd[len(sd) - 1]
 
     print(signal)

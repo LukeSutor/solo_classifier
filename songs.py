@@ -26,70 +26,44 @@ jimmy_page = [
     # led zeppelin 
     "good_times_bad_times",
     "dazed_and_confused",
-    "your_time_is_gonna_come",
-    "black_mountain_side",
     "communication_breakdown",
-    "i_cant_Quit_you_baby",
+    "i_cant_quit_you_baby",
     "how_many_more_times",
 
     # led zeppelin ii
     "whole_lotta_love",
     "what_is_and_what_should_never_be",
     "the_lemon_song",
-    "thank_you",
     "heartbreaker",
     "living_loving_maid",
     "ramble_on",
     "moby_dick",
-    "bring_it_on_home",
 
     # led zeppelin iii
-    "immigrant_song",
-    "friends",
     "celebration_day",
-    "since_ive_been_loving_you",
-    "out_on_the_tiles",
-    "gallows_pole",
+    "since_ive_been_lovin_you",
     "tangerine",
-    "thats_the_way",
-    "bron-y-aur_stomp",
-    "hats_off_to_roy_harper",
 
     # led zeppelin iv
     "black_dog",
     "rock_and_roll",
-    "the_battle_of_evermore",
     "stairway_to_heaven",
     "misty_mountain_hop",
-    "four_sticks",
-    "going_to_california",
     "when_the_levee_breaks",
 
     # houses of the holy
     "the_song_remains_the_same",
-    "the_rain_song",
     "over_the_hills_and_far_away",
-    "the_crunge",
-    "dancing_days",
     "dyer_maker",
     "no_quarter",
     "the_ocean",
 
     # physical graffiti
     "custard_pie",
-    "the_rover"
-    "in_my_time_dying",
-    "houses_of_the_holy",
-    "trampled_under_foot",
-    "kashmir",
-    "in_the_light",
-    "bron-y-aur",
-    "down_by_the_seaside",
+    "the_rover",
+    "in_my_time_of_dying",
     "ten_years_gone",
-    "night_flight",
     "the_wanton_song",
-    "boogie_with_stu",
-    "black_country_woman",
     "sick_again",
 
     # Presence
@@ -97,32 +71,38 @@ jimmy_page = [
     "for_your_life",
     "royal_orleans",
     "nobodys_fault_but_mine",
-    "candy_store_rock",
     "hots_on_for_nowhere",
-    "tea_for_one"
+    "tea_for_one",
 
     # in through the out door
     "in_the_evening",
     "south_bound_suarez",
     "fool_in_the_rain",
     "hot_dog",
-    "carouselambra",
     "all_my_love",
     "im_gonna_crawl",
 
     # coda
-    "poor_tom",
     "walters_walk",
     "ozone_baby",
     "darlene",
-    "bonzos_montreux",
-    "wearing_and_tearing"
+
+    # live solos
+    "live_at_msg"
+]
+
+
+eddie_van_halen = [
+
 ]
 
 def get_songs():
     songs = []
 
-    for song in jimmy_page:
-        songs.append(song)
+    for jimmy_song in jimmy_page:
+        songs.append(jimmy_song)
+
+    for eddit_song in eddie_van_halen:
+        songs.append(eddit_song)
 
     return songs
