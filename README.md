@@ -1,13 +1,11 @@
 # Solo Classifier
 ## Goal:
-Be able to tell which guitarist is soloing based on an audio clip of the song or solo.
+Classify which guitarist is playing based on input song audio or tell user which guitarist their tone is most similar to.
 
----
 
 ## Technologies:
-torchaudio for audio transformations (mel spectrogram) and PyTorch for convolutional neural network to analyze mel spectrograms
+torchaudio for audio preprocessing and transformations (mel spectrogram) and PyTorch for convolutional neural network to analyze mel spectrograms.
 
----
 
 ## Guitarists:
 1. Jimmy Page
