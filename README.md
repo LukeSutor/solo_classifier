@@ -8,15 +8,15 @@ torchaudio for audio preprocessing and transformations (mel spectrogram) and PyT
 
 
 ## Guitarists:
-1. Jimmy Page
-2. Eddie Van Halen
-3. David Gilmour
-4. Eric Clapton
-5. Jimi Hendrix
-6. Slash
-7. Randy Rhoades
-8. Mark Knopfler
-9. Brian May
-10. Prince
-11. Carlos Santana
-12. J Mascis
+* Jimmy Page
+* Eddie Van Halen
+* David Gilmour
+* Eric Clapton
+* Jimi Hendrix
+* Slash
+* Randy Rhoades
+* Mark Knopfler
+* Brian May
+* Prince
+* Carlos Santana
+* J Mascis
