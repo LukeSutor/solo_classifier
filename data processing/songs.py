@@ -1,6 +1,7 @@
 # In this file, all the songs for each artist are saved in their own array, then all the arrays are
 # combined into one large "songs" array.
 # This array is used by UpdateCSV.py to add all of the proper song names.
+# Each comment on the guitarist arrays denotes an album
 
 # Download the youtube videos as .wav files at https://loader.to/en18/youtube-wav-converter.html 
 # Save the video as its name under the full_solos directory
@@ -93,7 +94,129 @@ jimmy_page = [
 
 
 eddie_van_halen = [
+    # van halen
+    "runnin.with.the.devil",
+    "eruption",
+    "you.really.got.me",
+    "aint.talkin.bout.love",
+    "im.the.one",
+    "atomic.punk",
+    "feel.your.love.tonight",
+    "little.dreamer",
+    "ice.cream.man",
+    "on.fire",
 
+    # van halen ii
+    "youre.no.good",
+    "somebody.get.me.a.doctor",
+    "bottoms.up",
+    "outta.love.again",
+    "light.up.the.sky",
+    "d.o.a.", # fix periods
+    "woman.in.love",
+    "beautiful.girls",
+
+    # women and children first
+    "and.the.cradle.will.rock",
+    "everybody.wants.some",
+    "fools",
+    "romeo.delight",
+    "take.your.whiskey.home",
+    "in.a.simple.rhyme",
+
+    # fair warning
+    "mean.street",
+    "dirty.movies",
+    "sinners.swing",
+    "hear.about.it.later",
+    "unchained",
+    "push.comes.to.shove",
+    "so.this.is.love",
+    "one.foot.out.the.door",
+    
+    # diver down
+    "where.have.all.the.good.times.gone",
+    "hang.em.high",
+    "secrets",
+    "dancing.in.the.street",
+    "litte.guitars",
+    "the.full.bug",
+
+    # 1984
+    "jump",
+    "panama",
+    "top.jimmy",
+    "drop.dead.legs",
+    "hot.for.teacher",
+    "ill.wait",
+    "girl.gone.bad",
+    "house.of.pain",
+
+    # 5150
+    "good.enough",
+    "why.cant.this.be.love",
+    "get.up",
+    "dreams",
+    "summer.nights",
+    "best.of.both.worlds",
+    "love.walks.in",
+    "5150",
+    "inside",
+
+    # ou812
+    "mine.all.mine",
+    "when.its.love",
+    "a.f.u.", # fix periods
+    "cabo.wabo",
+    "source.of.infection",
+    "feels.so.good",
+    "black.and.blue",
+    "sucker.in.a.3.piece",
+
+    # for unlawful carnal knowledge
+    "poundcake",
+    "judgement.day",
+    "spanked",
+    "runaround",
+    "pleasure.dome",
+    "in.n.out",
+    "man.on.a.mission",
+    "the.dream.is.over",
+    "right.now",
+    "top.of.the.world",
+
+    # balance
+    "cant.stop.lovin.you",
+    "dont.tell.me",
+    "amsterdam",
+    "not.enough",
+    "aftershock",
+    "baluchiteherium",
+    "feelin",
+
+    # van halen iii
+    "without.you",
+    "one.i.want",
+    "from.afar",
+    "dirty.water.dog",
+    "fire.in.the.hole",
+    "josephina",
+    "year.to.the.day",
+    "ballot.or.the.bullet",
+
+    # a different kind of truth
+    "tattoo",
+    "you.and.your.blues",
+    "china.town",
+    "blood.and.fire",
+    "bullethead",
+    "as.is",
+    "honeybabysweetiedoll",
+    "the.trouble.with.never",
+    "outta.space",
+    "stay.frosty",
+    "big.river",
+    "beats.workin"
 ]
 
 def get_songs():
@@ -106,3 +229,5 @@ def get_songs():
         songs.append(eddit_song)
 
     return songs
+
+print(get_songs())
