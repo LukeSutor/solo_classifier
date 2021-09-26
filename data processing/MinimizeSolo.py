@@ -3,14 +3,14 @@ from ClipAndSaveSolos import ClipAndSave
 
 # This file is for trimming the original song down to just the solo to save space
 
-FILENAME = 'mean_street'
+FILENAME = 'shes_the_woman'
 
 def Minimize():
         start_minutes = 2
-        start_seconds = 6
+        start_seconds = 3
 
         end_minutes = 2
-        end_seconds = 41
+        end_seconds = 20
 
         start_time = start_minutes * 60 + start_seconds
         end_time = end_minutes * 60 + end_seconds

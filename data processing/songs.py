@@ -126,7 +126,6 @@ eddie_van_halen = [
 
     # fair warning
     "mean_street",
-    "dirty_movies",
     "sinners_swing",
     "hear_about_it_later",
     "unchained",
@@ -139,7 +138,6 @@ eddie_van_halen = [
     "hang_em_high",
     "secrets",
     "dancing_in_the_street",
-    "litte_guitars",
     "the_full_bug",
 
     # 1984
@@ -198,7 +196,6 @@ eddie_van_halen = [
     "without_you",
     "one_i_want",
     "from_afar",
-    "dirty_water_dog",
     "fire_in_the_hole",
     "josephina",
     "year_to_the_day",
