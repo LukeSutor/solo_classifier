@@ -20,12 +20,12 @@ def get_solo_number(solo):
 
 def get_guitarist_id(solo_number):
     if solo_number <= 46: return 0
-    elif solo_number <= 100: return 1
+    elif solo_number <= 146: return 1
     else: return -1
 
 def get_guitarist(solo_number):
     if solo_number <= 46: return "jimmy_page"
-    elif solo_number <= 100: return "eddie_van_halen"
+    elif solo_number <= 146: return "eddie_van_halen"
     else: return "unknown"
 
 

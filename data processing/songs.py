@@ -1,13 +1,13 @@
 # In this file, all the songs for each artist are saved in their own array, then all the arrays are
-# combined into one large "songs" array.
-# This array is used by UpdateCSV.py to add all of the proper song names.
+# combined into one large "songs" array
+# This array is used by UpdateCSV.py to add all of the proper song names
 # Each comment on the guitarist arrays denotes an album
 
-# Download the youtube videos as .wav files at https://loader.to/en18/youtube-wav-converter.html 
+# Download the youtube videos as _wav files at https://loader_to/en18/youtube-wav-converter_html 
 # Save the video as its name under the full_solos directory
-# Transposer: https://transposr.com/songs/new
-# Converter: https://www.freeconvert.com/audio-converter
-# Wav converter https://songsurgeon.com/engine/ssweb/
+# Transposer: https://transposr_com/songs/new
+# Converter: https://www_freeconvert_com/audio-converter
+# Wav converter https://songsurgeon_com/engine/ssweb/
 
 # artists: 
 # jimmy page
@@ -95,128 +95,129 @@ jimmy_page = [
 
 eddie_van_halen = [
     # van halen
-    "runnin.with.the.devil",
+    "runnin_with_the_devil",
     "eruption",
-    "you.really.got.me",
-    "aint.talkin.bout.love",
-    "im.the.one",
-    "atomic.punk",
-    "feel.your.love.tonight",
-    "little.dreamer",
-    "ice.cream.man",
-    "on.fire",
+    "you_really_got_me",
+    "aint_talkin_bout_love",
+    "im_the_one",
+    "atomic_punk",
+    "feel_your_love_tonight",
+    "little_dreamer",
+    "ice_cream_man",
+    "on_fire",
 
     # van halen ii
-    "youre.no.good",
-    "somebody.get.me.a.doctor",
-    "bottoms.up",
-    "outta.love.again",
-    "light.up.the.sky",
-    "d.o.a.", # fix periods
-    "woman.in.love",
-    "beautiful.girls",
+    "youre_no_good",
+    "somebody_get_me_a_doctor",
+    "bottoms_up",
+    "outta_love_again",
+    "light_up_the_sky",
+    "d.o.a.",
+    "women_in_love",
+    "beautiful_girls",
 
     # women and children first
-    "and.the.cradle.will.rock",
-    "everybody.wants.some",
+    "and_the_cradle_will_rock",
+    "everybody_wants_some",
     "fools",
-    "romeo.delight",
-    "take.your.whiskey.home",
-    "in.a.simple.rhyme",
+    "romeo_delight",
+    "take_your_whiskey_home",
+    "in_a_simple_rhyme",
 
     # fair warning
-    "mean.street",
-    "dirty.movies",
-    "sinners.swing",
-    "hear.about.it.later",
+    "mean_street",
+    "dirty_movies",
+    "sinners_swing",
+    "hear_about_it_later",
     "unchained",
-    "push.comes.to.shove",
-    "so.this.is.love",
-    "one.foot.out.the.door",
+    "push_comes_to_shove",
+    "so_this_is_love",
+    "one_foot_out_the_door",
     
     # diver down
-    "where.have.all.the.good.times.gone",
-    "hang.em.high",
+    "where_have_all_the_good_times_gone",
+    "hang_em_high",
     "secrets",
-    "dancing.in.the.street",
-    "litte.guitars",
-    "the.full.bug",
+    "dancing_in_the_street",
+    "litte_guitars",
+    "the_full_bug",
 
     # 1984
     "jump",
     "panama",
-    "top.jimmy",
-    "drop.dead.legs",
-    "hot.for.teacher",
-    "ill.wait",
-    "girl.gone.bad",
-    "house.of.pain",
+    "top_jimmy",
+    "drop_dead_legs",
+    "hot_for_teacher",
+    "ill_wait",
+    "girl_gone_bad",
+    "house_of_pain",
 
     # 5150
-    "good.enough",
-    "why.cant.this.be.love",
-    "get.up",
+    "good_enough",
+    "why_cant_this_be_love",
+    "get_up",
     "dreams",
-    "summer.nights",
-    "best.of.both.worlds",
-    "love.walks.in",
+    "summer_nights",
+    "best_of_both_worlds",
+    "love_walks_in",
     "5150",
     "inside",
 
     # ou812
-    "mine.all.mine",
-    "when.its.love",
-    "a.f.u.", # fix periods
-    "cabo.wabo",
-    "source.of.infection",
-    "feels.so.good",
-    "black.and.blue",
-    "sucker.in.a.3.piece",
+    "mine_all_mine",
+    "when_its_love",
+    "a.f.u.",
+    "cabo_wabo",
+    "source_of_infection",
+    "feels_so_good",
+    "black_and_blue",
+    "sucker_in_a_3_piece",
 
     # for unlawful carnal knowledge
     "poundcake",
-    "judgement.day",
+    "judgement_day",
     "spanked",
     "runaround",
-    "pleasure.dome",
-    "in.n.out",
-    "man.on.a.mission",
-    "the.dream.is.over",
-    "right.now",
-    "top.of.the.world",
+    "pleasure_dome",
+    "in_n_out",
+    "man_on_a_mission",
+    "the_dream_is_over",
+    "right_now",
+    "top_of_the_world",
 
     # balance
-    "cant.stop.lovin.you",
-    "dont.tell.me",
+    "cant_stop_lovin_you",
+    "dont_tell_me",
     "amsterdam",
-    "not.enough",
+    "not_enough",
     "aftershock",
     "baluchiteherium",
     "feelin",
 
     # van halen iii
-    "without.you",
-    "one.i.want",
-    "from.afar",
-    "dirty.water.dog",
-    "fire.in.the.hole",
+    "without_you",
+    "one_i_want",
+    "from_afar",
+    "dirty_water_dog",
+    "fire_in_the_hole",
     "josephina",
-    "year.to.the.day",
-    "ballot.or.the.bullet",
+    "year_to_the_day",
+    "ballot_or_the_bullet",
 
     # a different kind of truth
     "tattoo",
-    "you.and.your.blues",
-    "china.town",
-    "blood.and.fire",
+    "you_and_your_blues",
+    "china_town",
+    "blood_and_fire",
     "bullethead",
-    "as.is",
+    "as_is",
     "honeybabysweetiedoll",
-    "the.trouble.with.never",
-    "outta.space",
-    "stay.frosty",
-    "big.river",
-    "beats.workin"
+    "the_trouble_with_never",
+    "outta_space",
+    "stay_frosty",
+    "big_river",
+    "beats_workin",
+    "shes_the_woman"
 ]
 
 def get_songs():
@@ -229,5 +230,3 @@ def get_songs():
         songs.append(eddit_song)
 
     return songs
-
-print(get_songs())
