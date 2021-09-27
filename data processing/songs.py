@@ -217,13 +217,100 @@ eddie_van_halen = [
     "shes_the_woman"
 ]
 
+david_gilmour = [
+    # a saucerful of secrets
+    "let_there_be_more_light",
+
+    # more
+    "the_nile_song",
+    "more_blues",
+
+    # atom heart mother
+    "atom_heart_mother",
+    "fat_old_sun",
+
+    # meddle
+    "one_of_these_days",
+    "echoes",
+
+    # obscured by clouds
+    "the_gold_its_in_the",
+    "mudmen",
+    "childhoods_end",
+    "free_four",
+    "stay",
+
+    # the dark side of the moon
+    "time",
+    "money",
+    "any_colour_you_like",
+
+    # wish you were here
+    "shine_on_you_crazy_diamond", # all parts
+    "have_a_cigar",
+
+    # animals
+    "dogs",
+    "pigs",
+
+    # the wall
+    "the_thin_ice",
+    "another_brick_in_the_wall", # part 2
+    "mother",
+    "young_lust",
+    "one_of_my_turns",
+    "hey_you",
+    "comfortably_numb",
+
+    # the final cut
+    "your_possible_pasts",
+    "the_fletcher_memorial_home",
+    "the_final_cut",
+    "not_now_john",
+
+    # a momentary lapse of reason
+    "learning_to_fly",
+    "the_dogs_of_war",
+    "on_the_turning_away",
+    "yet_another_movie",
+    "sorrow",
+
+    # the division bell
+    "cluster_one",
+    "what_do_you_want_from_me",
+    "poles_apart",
+    "marooned",
+    "a_great_day_for_freedom",
+    "wearing_the_inside_out",
+    "coming_back_to_life",
+    "keep_talking",
+    "high_hopes",
+
+    # the endless river
+    "its_what_we_do",
+    "louder_than_words",
+
+    # the later years
+    "davids_blues",
+    "nervana",
+
+    # delicate sound of thunder (live)
+    "confortably_numb_live", # four mninute solo at end, exclude normal part start clip at 5:37
+
+    # live at knebworth 1990
+    "sorrow_live", # last solo
+]
+
 def get_songs():
     songs = []
 
     for jimmy_song in jimmy_page:
         songs.append(jimmy_song)
 
-    for eddit_song in eddie_van_halen:
-        songs.append(eddit_song)
+    for eddie_song in eddie_van_halen:
+        songs.append(eddie_song)
+
+    for gilmour_song in david_gilmour:
+        songs.append(gilmour_song)
 
     return songs
