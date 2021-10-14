@@ -11,7 +11,7 @@ from songs import get_songs
 # Wav converter https://songsurgeon.com/engine/ssweb/
 
 
-def ClipAndSave(songname):
+def ClipAndSave(songname, guitarist, index):
     def get_song_number():
         songs = get_songs()
         for i in range(len(songs)):
@@ -20,7 +20,7 @@ def ClipAndSave(songname):
         return 'SONG NOT FOUND'
 
     SONG_NUMBER = int(get_song_number())
-    FILENAME = "C:/Users/Luke/Desktop/coding/solo_classifier/audio/full_solos/eddie_van_halen/"+songname+"_solo.wav"
+    FILENAME = f"C:/Users/Luke/Desktop/coding/solo_classifier/audio/full_solos/{guitarist}/{songname}_solo_{index}.wav"
 
     def get_duration():
         with contextlib.closing(wave.open(FILENAME,'r')) as f:

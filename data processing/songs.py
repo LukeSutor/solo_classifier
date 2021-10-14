@@ -226,7 +226,6 @@ david_gilmour = [
     "more_blues",
 
     # atom heart mother
-    "atom_heart_mother",
     "fat_old_sun",
 
     # meddle
@@ -314,3 +313,5 @@ def get_songs():
         songs.append(gilmour_song)
 
     return songs
+
+print(len(get_songs()))
