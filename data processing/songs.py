@@ -294,7 +294,7 @@ david_gilmour = [
     "nervana",
 
     # delicate sound of thunder (live)
-    "confortably_numb_live", # four mninute solo at end, exclude normal part start clip at 5:37
+    "comfortably_numb_live", # four mninute solo at end, exclude normal part start clip at 5:37
 
     # live at knebworth 1990
     "sorrow_live", # last solo

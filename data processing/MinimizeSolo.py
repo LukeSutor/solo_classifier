@@ -5,11 +5,10 @@ from ClipAndSaveSolos import ClipAndSave
 
 GUITARIST = 'david_gilmour'
 
-FILENAME = 'a_great_day_for_freedom'
-
+FILENAME = 'your_possible_pasts'
 
 def Minimize():
-    solo_times = ["2:22-3:53"]
+    solo_times = ["2:36-3:17"]
     for i in range(len(solo_times)):
 
         start_and_end = solo_times[i].split("-")
