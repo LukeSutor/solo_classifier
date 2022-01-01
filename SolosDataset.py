@@ -4,10 +4,11 @@ import torch
 from torch.utils.data import Dataset
 import pandas as pd
 
+
 class SolosDataset(Dataset):
 
-    def __init__(self, annotations_file, audio_dir, transformation, 
-    target_sample_rate, num_samples, device):
+    def __init__(self, annotations_file, audio_dir, transformation,
+                 target_sample_rate, num_samples, device):
         self.annotations = pd.read_csv(annotations_file)
         self.audio_dir = audio_dir
         self.device = device
@@ -55,7 +56,8 @@ class SolosDataset(Dataset):
 
     def _resample_if_necessary(self, signal, sr):
         if sr != self.target_sample_rate:
-            resampler = torchaudio.transforms.Resample(sr, self.target_sample_rate).to(self.device)
+            resampler = torchaudio.transforms.Resample(
+                sr, self.target_sample_rate).to(self.device)
             signal = resampler(signal)
         return signal
 
@@ -82,23 +84,23 @@ if __name__ == "__main__":
         device = "cuda"
     else:
         device = "cpu"
-    
+
     print(f"using device {device}")
 
     mel_spectrogram = torchaudio.transforms.MelSpectrogram(
-        sample_rate = SAMPLE_RATE,
-        n_fft = 1024,
-        hop_length = 512,
-        n_mels = 64
+        sample_rate=SAMPLE_RATE,
+        n_fft=1024,
+        hop_length=512,
+        n_mels=64
     )
 
-    sd = SolosDataset(ANNOTATIONS_FILE, 
-    AUDIO_DIR, 
-    mel_spectrogram, 
-    SAMPLE_RATE,
-    NUM_SAMPLES,
-    device)
+    sd = SolosDataset(ANNOTATIONS_FILE,
+                      AUDIO_DIR,
+                      mel_spectrogram,
+                      SAMPLE_RATE,
+                      NUM_SAMPLES,
+                      device)
 
-    signal, label = sd[237]
+    signal, label = sd[470]
 
     print(signal)

@@ -303,12 +303,10 @@ eric_clapton = [
     "im_not_talking",
     "i_aint_got_you",
     "got_to_hurry",
-    "i_aint_done_wrong",
     "a_certain_girl",
     "good_morning_little_schoolgirl",
 
     # layla and other assorted love songs
-    "i_looked_away",
     "bell_bottom_blues",
     "keep_on_growing",
     "nobody_knows_you_when_youre_down_and_out",
@@ -325,7 +323,6 @@ eric_clapton = [
     # 461 Ocean Blvd.
     "motherless_children",
     "i_cant_hold_out",
-    "please_be_with_me",
     "let_it_grow",
     "steady_rollin_man",
     "aint_that_lovin_you",
@@ -336,7 +333,6 @@ eric_clapton = [
     # theres one in every crowd
     "swing_low_sweet_chariot",
     "the_sky_is_crying",
-    "singin_the_blues",
     "better_make_it_through_today",
     "high",
 
@@ -351,7 +347,6 @@ eric_clapton = [
 
     # slowhand
     "cocaine",
-    "wonderful_tonight",
     "lay_down_sally",
     "next_time_you_see_her",
     "mean_old_frisco",
@@ -374,7 +369,6 @@ eric_clapton = [
 
     # timepieces
     "after_midnight",
-    "knockin_on_heavens_door",
 
     # money and cigarettes
     "everybody_oughta_make_a_change",
@@ -414,6 +408,14 @@ eric_clapton = [
     "tales_of_brave_ulysses",
     "swlabr",
     "outside_woman_blues",
+
+    # Weird bug with 1 more eric clapton song than is showing up, all other songs are correctly labeled, though
+    # it funks out at around song 249
+    "idk_1",
+]
+
+jimi_hendrix = [
+
 ]
 
 
@@ -432,7 +434,14 @@ def get_songs():
     for clapton_song in eric_clapton:
         songs.append(clapton_song)
 
+    for jimi_song in jimi_hendrix:
+        songs.append(jimi_song)
+
     return songs
 
 
 print(len(get_songs()))
+
+x = get_songs()
+
+print(x[200])
