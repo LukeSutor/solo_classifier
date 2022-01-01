@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 from SolosDataset import SolosDataset
 from cnn import CNNNetwork
 
-BATCH_SIZE = 128
+BATCH_SIZE = 32
 EPOCHS = 10
 LEARNING_RATE = 0.001
 
@@ -15,6 +15,7 @@ AUDIO_DIR = "C:/Users/Luke/Desktop/coding/solo_classifier/audio/solos"
 SAMPLE_RATE = 22050
 NUM_SAMPLES = 220500
 
+
 def create_data_loader(train_data, batch_size):
     train_dataloader = DataLoader(train_data, batch_size=batch_size)
     return train_dataloader
@@ -22,14 +23,14 @@ def create_data_loader(train_data, batch_size):
 
 def train_single_epoch(model, data_loader, loss_fn, optimiser, device):
     for input, target in data_loader:
-        input, target = input.to(device), target.to(device)        
+        input, target = input.to(device), target.to(device)
 
         # calculate loss
         prediction = model(input)
         loss = loss_fn(prediction, target)
 
         # backpropagate error and update weights
-        optimiser.zero_grad()
+        optimiser.zero_grad(set_to_none=True)
         loss.backward()
         optimiser.step()
 
@@ -51,21 +52,19 @@ if __name__ == "__main__":
         device = "cpu"
     print(f"Using {device}")
 
-
     mel_spectrogram = torchaudio.transforms.MelSpectrogram(
-        sample_rate = SAMPLE_RATE,
-        n_fft = 1024,
-        hop_length = 512,
-        n_mels = 64
+        sample_rate=SAMPLE_RATE,
+        n_fft=1024,
+        hop_length=512,
+        n_mels=64
     )
 
-    sd = SolosDataset(ANNOTATIONS_FILE, 
-    AUDIO_DIR, 
-    mel_spectrogram, 
-    SAMPLE_RATE,
-    NUM_SAMPLES,
-    device)
-
+    sd = SolosDataset(ANNOTATIONS_FILE,
+                      AUDIO_DIR,
+                      mel_spectrogram,
+                      SAMPLE_RATE,
+                      NUM_SAMPLES,
+                      device)
 
     train_dataloader = create_data_loader(sd, BATCH_SIZE)
 

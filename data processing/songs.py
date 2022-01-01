@@ -3,28 +3,25 @@
 # This array is used by UpdateCSV.py to add all of the proper song names
 # Each comment on the guitarist arrays denotes an album
 
-# Download the youtube videos as _wav files at https://loader_to/en18/youtube-wav-converter_html 
+# Download the youtube videos as _wav files at https://loader_to/en18/youtube-wav-converter_html
 # Save the video as its name under the full_solos directory
 # Transposer: https://transposr_com/songs/new
 # Converter: https://www_freeconvert_com/audio-converter
 # Wav converter https://songsurgeon_com/engine/ssweb/
 
-# artists: 
+# artists:
 # jimmy page
 # eddie van halen
 # david gilmour
 # eric clapton
 # jimi hendrix
 # slash
-# randy rhoades
 # mark knopfler
 # brian may
-# prince
 # carlos santana
-# j mascis
 
 jimmy_page = [
-    # led zeppelin 
+    # led zeppelin
     "good_times_bad_times",
     "dazed_and_confused",
     "communication_breakdown",
@@ -132,7 +129,7 @@ eddie_van_halen = [
     "push_comes_to_shove",
     "so_this_is_love",
     "one_foot_out_the_door",
-    
+
     # diver down
     "where_have_all_the_good_times_gone",
     "hang_em_high",
@@ -245,7 +242,7 @@ david_gilmour = [
     "any_colour_you_like",
 
     # wish you were here
-    "shine_on_you_crazy_diamond", # all parts
+    "shine_on_you_crazy_diamond",  # all parts
     "have_a_cigar",
 
     # animals
@@ -254,7 +251,7 @@ david_gilmour = [
 
     # the wall
     "the_thin_ice",
-    "another_brick_in_the_wall", # part 2
+    "another_brick_in_the_wall",  # part 2
     "mother",
     "young_lust",
     "one_of_my_turns",
@@ -294,11 +291,131 @@ david_gilmour = [
     "nervana",
 
     # delicate sound of thunder (live)
-    "comfortably_numb_live", # four mninute solo at end, exclude normal part start clip at 5:37
+    # four mninute solo at end, exclude normal part start clip at 5:37
+    "comfortably_numb_live",
 
     # live at knebworth 1990
-    "sorrow_live", # last solo
+    "sorrow_live",  # last solo
 ]
+
+eric_clapton = [
+    # for your love
+    "im_not_talking",
+    "i_aint_got_you",
+    "got_to_hurry",
+    "i_aint_done_wrong",
+    "a_certain_girl",
+    "good_morning_little_schoolgirl",
+
+    # layla and other assorted love songs
+    "i_looked_away",
+    "bell_bottom_blues",
+    "keep_on_growing",
+    "nobody_knows_you_when_youre_down_and_out",
+    "i_am_yours",
+    "anyday",
+    "key_to_the_highway",
+    "tell_the_truth",
+    "why_does_love_got_to_be_so_sad",
+    "have_you_ever_loved_a_woman",
+    "little_wing",
+    "its_too_late",
+    "layla",
+
+    # 461 Ocean Blvd.
+    "motherless_children",
+    "i_cant_hold_out",
+    "please_be_with_me",
+    "let_it_grow",
+    "steady_rollin_man",
+    "aint_that_lovin_you",
+    "meet_me",
+    "eric_after_hours_blues",
+    "b_minor_jam",
+
+    # theres one in every crowd
+    "swing_low_sweet_chariot",
+    "the_sky_is_crying",
+    "singin_the_blues",
+    "better_make_it_through_today",
+    "high",
+
+    # no reason to cry
+    "beautiful_thing",
+    "county_jail_blues",
+    "all_our_past_times",
+    "double_trouble",
+    "hungry",
+    "black_summer_rain",
+    "last_night",
+
+    # slowhand
+    "cocaine",
+    "wonderful_tonight",
+    "lay_down_sally",
+    "next_time_you_see_her",
+    "mean_old_frisco",
+    "peaches_and_diesel",
+
+    # backless
+    "walk_out_in_the_rain",
+    "watch_out_for_lucy",
+    "ill_make_love_to_you_anytime",
+    "roll_it",
+    "if_i_dont_be_there_by_morning",
+    "early_in_the_morning",
+
+    # another ticket
+    "blow_wind_blow",
+    "hold_me_lord",
+    "floating_bridge",
+    "catch_me_if_you_can",
+    "rita_mae",
+
+    # timepieces
+    "after_midnight",
+    "knockin_on_heavens_door",
+
+    # money and cigarettes
+    "everybody_oughta_make_a_change",
+    "the_shape_youre_in",
+    "aint_going_down",
+    "ive_got_a_rock_n_roll_heart",
+    "man_overboard",
+    "pretty_girl",
+    "crosscut_saw",
+    "slow_down_linda",
+
+    # CREAM
+
+    # fresh cream
+    "n.s.u",
+    "sleepy_time_time",
+    "sweet_wine",
+    "spoonful",
+    "cats_squirrel",
+    "im_so_glad",
+
+    # wheels of fire
+    "white_room",
+    "sitting_on_top_of_the_world",
+    "politician",
+    "those_were_the_days",
+    "born_under_a_bad_sign",
+    "deserted_cities_of_the_heart",
+
+    # goodbye
+    "badge",
+    "crossroads",
+
+    # disraeli gears
+    "strange_brew",
+    "sunshine_of_your_love",
+    "tales_of_brave_ulysses",
+    "swlabr",
+    "outside_woman_blues",
+]
+
 
 def get_songs():
     songs = []
@@ -312,6 +429,10 @@ def get_songs():
     for gilmour_song in david_gilmour:
         songs.append(gilmour_song)
 
+    for clapton_song in eric_clapton:
+        songs.append(clapton_song)
+
     return songs
+
 
 print(len(get_songs()))
