@@ -77,8 +77,8 @@ class SolosDataset(Dataset):
 if __name__ == "__main__":
     ANNOTATIONS_FILE = "C:/Users/Luke/Desktop/coding/solo_classifier/audio/annotations.csv"
     AUDIO_DIR = "C:/Users/Luke/Desktop/coding/solo_classifier/audio/solos"
-    SAMPLE_RATE = 22050
-    NUM_SAMPLES = 220500
+    SAMPLE_RATE = 48000  # 22050
+    NUM_SAMPLES = 480000  # 220500
 
     if torch.cuda.is_available():
         device = "cuda"
@@ -101,6 +101,8 @@ if __name__ == "__main__":
                       NUM_SAMPLES,
                       device)
 
-    signal, label = sd[470]
+    signal, label = sd[100]
 
-    print(signal)
+    plot_specgram(waveform, sample_rate)
+
+    print(signal.shape)

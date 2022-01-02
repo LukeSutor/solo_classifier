@@ -949,8 +949,8 @@ file_name,classID,class,song_name
 272_1.wav,3,eric_clapton,swlabr
 273_0.wav,3,eric_clapton,outside_woman_blues
 273_1.wav,3,eric_clapton,outside_woman_blues
-274_0.wav,-1,unknown,idk_1
-274_1.wav,-1,unknown,idk_1
+274_0.wav,3,unknown,idk_1
+274_1.wav,3,unknown,idk_1
 27_0.wav,0,jimmy_page,in_my_time_of_dying
 27_1.wav,0,jimmy_page,in_my_time_of_dying
 27_2.wav,0,jimmy_page,in_my_time_of_dying
