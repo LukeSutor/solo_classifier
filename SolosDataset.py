@@ -4,6 +4,8 @@ import torch
 from torch.utils.data import Dataset
 import pandas as pd
 
+from ImbalancedDataSampler import ImbalancedDatasetSampler
+
 
 class SolosDataset(Dataset):
 
@@ -101,8 +103,25 @@ if __name__ == "__main__":
                       NUM_SAMPLES,
                       device)
 
-    signal, label = sd[100]
+    signal, label = sd[1199]
 
-    plot_specgram(waveform, sample_rate)
+    page = 0
+    gilmour = 0
+    van_halen = 0
+    clapton = 0
 
-    print(signal.shape)
+    # for i in range(len(sd)):
+    #     guitarist = sd[i][1]
+    #     if guitarist == 0:
+    #         page += 1
+    #     elif guitarist == 1:
+    #         gilmour += 1
+    #     elif guitarist == 2:
+    #         van_halen += 1
+    #     else:
+    #         clapton += 1
+
+    # print(
+    #     f"Page: {page}, Gilmour: {gilmour}, Van Halen: {van_halen}, Clapton: {clapton}")
+
+    ids = ImbalancedDatasetSampler(sd)

@@ -4,17 +4,22 @@ from torch import nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from torch.cuda.amp import GradScaler, autocast
+from collections import Counter
+
+
 from torch.utils.tensorboard import SummaryWriter
+
+from ImbalancedDataSampler import ImbalancedDatasetSampler
 
 from SolosDataset import SolosDataset
 # from cnn import CNNNetwork
 import timm
 
-BATCH_SIZE = 64
-ACCUMULATE_STEPS = 8
-EPOCHS = 300
+BATCH_SIZE = 32
+ACCUMULATE_STEPS = 4
+EPOCHS = 10
 USE_AUTOCAST = True
-# LEARNING_RATE = 0.001
+LEARNING_RATE = 1e-4
 
 ANNOTATIONS_FILE = "C:/Users/Luke/Desktop/coding/solo_classifier/audio/annotations.csv"
 AUDIO_DIR = "C:/Users/Luke/Desktop/coding/solo_classifier/audio/solos"
@@ -41,7 +46,22 @@ if __name__ == "__main__":
                       SAMPLE_RATE,
                       NUM_SAMPLES,
                       device)
-    train_dataloader = DataLoader(sd, BATCH_SIZE)
+
+    # Get the number of samples for each guitarist
+    trainclasses = [label for _, label in sd]
+    counter = Counter(trainclasses)
+
+    print(counter)
+
+    weights = torch.zeros(1+1+1+1)
+
+    for i in range(len(counter)):
+        print(counter[i])
+        weights[i] = 1 / counter.pop(i)
+
+    print(weights)
+    train_dataloader = DataLoader(
+        sd, sampler=torch.utils.data.WeightedRandomSampler(weights, 4, replacement=True), batch_size=BATCH_SIZE)
 
     # Construct model and assign it to device (GPU)
     cnn = timm.create_model('efficientnetv2_s', num_classes=4)
@@ -55,24 +75,32 @@ if __name__ == "__main__":
 
     # Initialize loss function (Cross Entropy) and optimiser (Adam)
     criterion = nn.CrossEntropyLoss()
-    optimiser = optim.AdamW(cnn.parameters(), lr=1e-2)
+    optimiser = optim.AdamW(cnn.parameters(), lr=LEARNING_RATE)
     scheduler = optim.lr_scheduler.CosineAnnealingWarmRestarts(optimiser, 5)
     scaler = GradScaler()
     writer = SummaryWriter(
-        f"runs/bs{BATCH_SIZE}_as{ACCUMULATE_STEPS}_e{EPOCHS}")
+        f"runs/bs{BATCH_SIZE}_as{ACCUMULATE_STEPS}_e{EPOCHS}_lr{LEARNING_RATE}_UAC={USE_AUTOCAST}_weightedSample")
 
     iter = 0
     for i in range(EPOCHS):
         print(f"Epoch {i+1}")
         running_loss = []
+        running_correct = 0
+        index = 0
         for input, target in train_dataloader:
             with autocast(USE_AUTOCAST):
                 input, target = input.to(device), target.to(device)
-            # calculate loss
+                # calculate loss
                 prediction = cnn(input)
                 loss = criterion(prediction, target)
 
+                predicted_index = prediction[0].argmax(0)
+                print(f"{predicted_index.item()} and {target}")
+                if predicted_index.item() == target[0]:
+                    running_correct += 1
+
             iter += 1
+            index += 1
 
             if (iter % ACCUMULATE_STEPS == 0):
                 # backpropagate error and update weights
@@ -82,6 +110,9 @@ if __name__ == "__main__":
                 optimiser.step()
                 running_loss.append(loss.item())
 
+        accuracy = running_correct / index
+
+        print(f"accuracy: {accuracy}")
         print(f"loss: {sum(running_loss) / len(running_loss)}")
         writer.add_scalar("Loss", sum(running_loss) / len(running_loss), i+1)
         scheduler.step()
@@ -89,5 +120,5 @@ if __name__ == "__main__":
     print("Finished training")
 
     # Save model
-    torch.save(cnn.state_dict(), "cnn.pth")
-    print("Trained convolutional neural network saved at cnn.pth")
+    torch.save(cnn.state_dict(), "cnn_2.pth")
+    print("Trained convolutional neural network saved at cnn_2.pth")
