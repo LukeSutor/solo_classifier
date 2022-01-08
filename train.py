@@ -2,22 +2,18 @@ import torch
 import torchaudio
 from torch import nn
 import torch.optim as optim
+from torch.utils.data import WeightedRandomSampler
 from torch.utils.data import DataLoader
 from torch.cuda.amp import GradScaler, autocast
 from collections import Counter
-
-
 from torch.utils.tensorboard import SummaryWriter
-
-from ImbalancedDataSampler import ImbalancedDatasetSampler
-
 from SolosDataset import SolosDataset
 # from cnn import CNNNetwork
 import timm
 
 BATCH_SIZE = 32
 ACCUMULATE_STEPS = 4
-EPOCHS = 10
+EPOCHS = 300
 USE_AUTOCAST = True
 LEARNING_RATE = 1e-4
 
@@ -51,27 +47,28 @@ if __name__ == "__main__":
     trainclasses = [label for _, label in sd]
     counter = Counter(trainclasses)
 
-    print(counter)
-
-    weights = torch.zeros(1+1+1+1)
+    class_weights = [0] * 4
+    sample_weights = torch.zeros(len(sd))
 
     for i in range(len(counter)):
-        print(counter[i])
-        weights[i] = 1 / counter.pop(i)
+        class_weights[i] = 1 / counter.pop(i)
 
-    print(weights)
+    for i, (_, label) in enumerate(sd):
+        class_weight = class_weights[label]
+        sample_weights[i] = class_weight
+
+    sampler = WeightedRandomSampler(
+        sample_weights, num_samples=len(sample_weights), replacement=True)
+
     train_dataloader = DataLoader(
-        sd, sampler=torch.utils.data.WeightedRandomSampler(weights, 4, replacement=True), batch_size=BATCH_SIZE)
+        sd, batch_size=BATCH_SIZE, sampler=sampler)
 
-    # Construct model and assign it to device (GPU)
+    # Construct model and assign it to device
     cnn = timm.create_model('efficientnetv2_s', num_classes=4)
-    # (conv_stem): Conv2d(3, 24, kernel_size=(3, 3),
-    #                     stride=(2, 2), padding=(1, 1), bias=False)
     cnn.conv_stem = nn.Conv2d(1, 24, 3, 2, 1, bias=False)
     cnn.to(device)
-    # cnn = CNNNetwork().to(device)
     cnn.train()
-    print(cnn.modules)
+    # print(cnn.modules)
 
     # Initialize loss function (Cross Entropy) and optimiser (Adam)
     criterion = nn.CrossEntropyLoss()
@@ -95,7 +92,6 @@ if __name__ == "__main__":
                 loss = criterion(prediction, target)
 
                 predicted_index = prediction[0].argmax(0)
-                print(f"{predicted_index.item()} and {target}")
                 if predicted_index.item() == target[0]:
                     running_correct += 1
 
@@ -105,7 +101,6 @@ if __name__ == "__main__":
             if (iter % ACCUMULATE_STEPS == 0):
                 # backpropagate error and update weights
                 optimiser.zero_grad(set_to_none=True)
-                # scaler.scale(loss).backward()
                 loss.backward()
                 optimiser.step()
                 running_loss.append(loss.item())
@@ -115,6 +110,7 @@ if __name__ == "__main__":
         print(f"accuracy: {accuracy}")
         print(f"loss: {sum(running_loss) / len(running_loss)}")
         writer.add_scalar("Loss", sum(running_loss) / len(running_loss), i+1)
+        writer.add_scalar("Accuracy", accuracy, i+1)
         scheduler.step()
     print("---------------------------")
     print("Finished training")
