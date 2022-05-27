@@ -32,7 +32,7 @@ def predict(audio_dir):
 
     cnn = timm.create_model('efficientnetv2_s', num_classes=4)
     cnn.conv_stem = nn.Conv2d(1, 24, 3, 2, 1, bias=False)
-    cnn.load_state_dict(torch.load("cnn_2.pth"))
+    cnn.load_state_dict(torch.load("cnn.pth"))
     cnn.eval()
 
     with torch.no_grad():
@@ -47,9 +47,6 @@ def predict(audio_dir):
 
 
 if __name__ == "__main__":
-
-    predict("jimmy_page.wav")
-
     # # if torch.cuda.is_available():
     # #     device = "cuda"
     # # else:
@@ -58,7 +55,7 @@ if __name__ == "__main__":
 
     # cnn = timm.create_model('efficientnetv2_s', num_classes=4)
     # cnn.conv_stem = nn.Conv2d(1, 24, 3, 2, 1, bias=False)
-    # cnn.load_state_dict(torch.load("cnn_2.pth"))
+    # cnn.load_state_dict(torch.load(cnn.pth"))
     # # cnn.to(device)
 
     # mel_spectrogram = torchaudio.transforms.MelSpectrogram(

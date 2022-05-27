@@ -116,5 +116,5 @@ if __name__ == "__main__":
     print("Finished training")
 
     # Save model
-    torch.save(cnn.state_dict(), "cnn_2.pth")
-    print("Trained convolutional neural network saved at cnn_2.pth")
+    torch.save(cnn.state_dict(), "cnn.pth")
+    print("Trained convolutional neural network saved at cnn.pth")
