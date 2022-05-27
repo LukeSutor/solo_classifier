@@ -137,3 +137,4 @@ dependencies:
   - pip:
     - torchsampler==0.1.1
 prefix: C:\Users\Luke\anaconda3\envs\solo_classifier
+ 
